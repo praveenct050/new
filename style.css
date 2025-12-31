@@ -1,6 +1,6 @@
 /* === Animated Gradient Background === */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif ;
     margin: 0;
     color: #fff;
     background: linear-gradient(-45deg, #0a66c2, #ff4b2b, #ff416c, #1a1a1a);
