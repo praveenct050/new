@@ -1,0 +1,49 @@
+/* === Animated Gradient Background === */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    color: #fff;
+    background: linear-gradient(-45deg, #0a66c2, #ff4b2b, #ff416c, #1a1a1a);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+/* Gradient Animation Keyframes */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Header Style */
+header {
+    background-color: rgba(0,0,0,0.6);
+    padding: 30px 20px;
+    text-align: center;
+}
+
+/* Section Style */
+section {
+    background: rgba(0,0,0,0.6);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Headings */
+h2 {
+    color: #0a66c2;
+}
+
+/* List style */
+ul {
+    padding-left: 20px;
+}
+
+/* Footer style */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: rgba(0,0,0,0.6);
+    font-size: 14px;
+}
