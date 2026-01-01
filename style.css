@@ -3,8 +3,12 @@ body {
     font-family: Arial, sans-serif ;
     margin: 0;
     color: #fff;
-    background: linear-gradient(-45deg, #0a66c2, #ff4b2b, #ff416c, #1a1a1a);
-    background-size: 400% 400%;
+    background: 
+        linear-gradient(-45deg, #ffe6e6, #ffffcc, #e6f7ff, #fff0f5), /* light gradient */
+        url('WhatsApp Image 2025-06-17 at 02.19.02_287d8f42.jpg') no-repeat center center fixed; /* your image */
+    background-size: cover; /* make image cover full screen */
+
+    /* Gradient animation */
     animation: gradientBG 5s ease infinite;
 }
 
