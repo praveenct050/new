@@ -4,9 +4,8 @@ body {
     margin: 0;
     color: #fff;
     background: 
-        linear-gradient(-45deg, #ffe6e6, #ffffcc, #e6f7ff, #fff0f5), /* light gradient */
-        url('WhatsApp Image 2025-06-17 at 02.19.02_287d8f42.jpg') no-repeat center center fixed; /* your image */
-    background-size: cover; /* make image cover full screen */
+        linear-gradient(-45deg, #a8dadc, #90be6d, #ffffff), /* light gradient */
+
 
     /* Gradient animation */
     animation: gradientBG 5s ease infinite;
