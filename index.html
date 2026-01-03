@@ -3,52 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <title>Simple Form Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+       <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: url("background.jpg") no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
 
-        form {
-            background: black
-            padding: 20px;
-            width: 320px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+    form {
+        background: rgba(0, 0, 0, 0.75); /* transparent black */
+        padding: 20px;
+        width: 320px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        color: white;
+    }
 
-        h2 {
-            text-align: center;
-        }
+    h2 {
+        text-align: center;
+    }
 
-        label {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-        }
+    label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
 
-        input, select, textarea, button {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-        }
+    input, button {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: none;
+    }
 
-        button {
-            margin-top: 15px;
-            background: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
+    button {
+        margin-top: 15px;
+        background: #4CAF50;
+        color: white;
+        cursor: pointer;
+    }
 
-        button:hover {
-            background: #45a049;
-        }
-    </style>
+    button:hover {
+        background: #45a049;
+    }
+</style>
+
 </head>
 <body>
 
