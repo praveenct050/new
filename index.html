@@ -2,41 +2,94 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <link rel="stylesheet" href="style.css" >  
-    <title>Happy New Year 2026</title> 
-    
+    <title>Simple Form Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            width: 320px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input, select, textarea, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        button {
+            margin-top: 15px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+    </style>
 </head>
 <body>
 
-<header>
-    <h1>Wish Your happy New Year 2026</h1> </br> </br>
-   <center> <p></p>  </center>
-</header>
+<form>
+    <h2>Registration Form</h2>
 
+    <!-- Text Input -->
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-<section>
+    <!-- Email Input -->
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-    
-    <p></p>
-        
-    </p>
+    <!-- Selection (Dropdown) -->
+    <label for="course">Select Course</label>
+    <select id="course" name="course">
+        <option value="">-- Choose --</option>
+        <option value="networking">Networking</option>
+        <option value="web">Web Development</option>
+        <option value="cyber">Cyber Security</option>
+    </select>
 
-    
-    <p>
-        
-    </p>
+    <!-- Radio Buttons -->
+    <label>Gender</label>
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female"> Female
 
-   
-    <p>
-        
-    </p>
-</section>
+    <!-- Checkbox -->
+    <label>
+        <input type="checkbox" required> I agree to terms
+    </label>
 
+    <!-- Textarea -->
+    <label for="message">Message</label>
+    <textarea id="message" rows="3" placeholder="Your message"></textarea>
 
-<footer>
-    wellcome to 2026
-</footer>
+    <!-- Submit Button -->
+    <button type="submit">Submit</button>
+</form>
 
 </body>
 </html>
+
