@@ -8,7 +8,7 @@ body {
 
 
     /* Gradient animation */
-    animation: gradientBG 5s ease infinite;
+    animation: gradientBG 1s ease infinite;
 }
 
 /* Gradient Animation Keyframes */
