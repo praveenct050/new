@@ -54,23 +54,23 @@
     }
 </style>
  <script>   
+<script>
 document.querySelector("form").addEventListener("submit", function (e) {
-    e.preventDefault(); // stop page reload
+    e.preventDefault();
 
     const username = document.getElementById("name").value;
     const password = document.getElementById("password").value;
 
-    if (username && password) {
-        // fake login
+    if (username === "admin" && password === "1234") {
         localStorage.setItem("loggedIn", "true");
         localStorage.setItem("username", username);
-
-        // redirect to dashboard
         window.location.href = "dashboard.html";
     } else {
-        alert("Invalid login");
+        alert("Invalid username or password");
     }
 });
+</script>
+
 </script>
 
 
