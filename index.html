@@ -52,7 +52,26 @@
     button:hover {
         background: #45a049;
     }
-</style>
+
+document.querySelector("form").addEventListener("submit", function (e) {
+    e.preventDefault(); // stop page reload
+
+    const username = document.getElementById("name").value;
+    const password = document.getElementById("password").value;
+
+    if (username && password) {
+        // fake login
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("username", username);
+
+        // redirect to dashboard
+        window.location.href = "dashboard.html";
+    } else {
+        alert("Invalid login");
+    }
+});
+</script>
+
 
 </head>
 <body>
@@ -66,7 +85,7 @@
 
     <!-- Email Input -->
     <label for="email">Password</label>
-    <input type="email" id="email" name="password" placeholder="Enter your password" required>
+    <input type="text" id="email" name="password" placeholder="Enter your password" required>
 
     <!-- Selection (Dropdown) -->
     
