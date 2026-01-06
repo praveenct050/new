@@ -54,13 +54,21 @@
     }
 </style>
  <script>
-alert("JS LOADED");
-
 document.getElementById("loginForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    alert("FORM SUBMITTED");
+    e.preventDefault(); // 🔑 stop default form submission
 
-    window.location.href = "dashboard.html";
+    const username = document.getElementById("name").value;
+    const password = document.getElementById("password").value;
+
+    if (username && password) {
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("username", username);
+
+        // ✅ redirect to dashboard
+        window.location.href = "dashboard.html";
+    } else {
+        alert("Please fill all fields");
+    }
 });
 
 </script>
