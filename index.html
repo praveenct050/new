@@ -53,19 +53,15 @@
         background: #45a049;
     }
 </style>
- <script>   
-<form id="loginForm">
-    <h2>Welcome to Terraa</h2>
+ <script>
+alert("JS LOADED");
 
-    <label>Username</label>
-    <input type="text" id="name" required>
+document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    alert("FORM SUBMITTED");
 
-    <label>Password</label>
-    <input type="password" id="password" required>
-
-    <button type="submit">Login</button>
-</form>
-
+    window.location.href = "dashboard.html";
+});
 </script>
 
 
