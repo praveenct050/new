@@ -130,19 +130,30 @@ document.getElementById("addBtn").addEventListener("click", () => {
     loadReminders();
 });
 
-// Check reminders every minute
+
+// Check reminders every second
 setInterval(() => {
     const now = new Date();
     const currentDate = now.toISOString().split("T")[0]; // YYYY-MM-DD
     const currentTime = now.toTimeString().slice(0,5);    // HH:MM
 
-    const reminders = JSON.parse(localStorage.getItem("reminders")) || [];
-    reminders.forEach(r => {
-        if (r.date === currentDate && r.time === currentTime) {
+    let reminders = JSON.parse(localStorage.getItem("reminders")) || [];
+
+    reminders.forEach((r, index) => {
+        // If reminder matches current date & time
+        if (r.date === currentDate && r.time === currentTime && !r.notified) {
             alert(`📢 Reminder: ${r.title}`);
+
+            // Mark as notified to avoid repeated popups
+            r.notified = true;
         }
     });
-}, 60000); // every 60 seconds
+
+    // Save updated reminders back to localStorage
+    localStorage.setItem("reminders", JSON.stringify(reminders));
+
+}, 1000); // check every second
+
 
 // Logout
 document.getElementById("logoutBtn").addEventListener("click", () => {
