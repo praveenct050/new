@@ -53,28 +53,7 @@
         background: #45a049;
     }
 </style>
- <script>
-document.getElementById("loginForm").addEventListener("submit", function (e) {
-    e.preventDefault(); // 🔑 stop default form submission
-
-    const username = document.getElementById("name").value;
-    const password = document.getElementById("password").value;
-
-    if (username && password) {
-        localStorage.setItem("loggedIn", "true");
-        localStorage.setItem("username", username);
-
-        // ✅ redirect to dashboard
-        window.location.href = "dashboard.html";
-    } else {
-        alert("Please fill all fields");
-    }
-});
-
-</script>
-
-
-</head>
+ </head>
 <body>
 
 <form id="loginForm">
@@ -86,10 +65,27 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     <label>Password</label>
     <input type="password" id="password" required>
 
-    <!-- IMPORTANT: type="button" -->
-    <button type="submit" id="loginBtn">Login</button>
+    <button type="submit">Login</button>
 </form>
 
+<!-- ✅ Move JS here, after the form -->
+<script>
+document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // stop default form submission
+
+    const username = document.getElementById("name").value;
+    const password = document.getElementById("password").value;
+
+    if (username && password) {
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("username", username);
+
+        window.location.href = "dashboard.html";
+    } else {
+        alert("Please fill all fields");
+    }
+});
+</script>
 </body>
 </html>
 
