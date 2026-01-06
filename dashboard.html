@@ -1,16 +1,157 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Dashboard</title>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d0f0ff; /* light blue */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .reminder-form {
+            max-width: 400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        ul {
+            max-width: 400px;
+            margin: 20px auto 0 auto;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        li {
+            background: #e0f7ff;
+            margin-bottom: 8px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #logoutBtn {
+            max-width: 400px;
+            display: block;
+            margin: 20px auto;
+            background: #f44336;
+        }
+    </style>
 </head>
 <body>
 
-<h1>Dashboard Loaded ✅</h1>
+<h2>Welcome to Your Dashboard</h2>
+
+<div class="reminder-form">
+    <label>Reminder Title</label>
+    <input type="text" id="title" placeholder="Enter reminder title" required>
+
+    <label>Date</label>
+    <input type="date" id="date" required>
+
+    <label>Time</label>
+    <input type="time" id="time" required>
+
+    <button id="addBtn">Add Reminder</button>
+</div>
+
+<ul id="reminderList"></ul>
+
+<button id="logoutBtn">Logout</button>
 
 <script>
+// Redirect to login if not logged in
 if (localStorage.getItem("loggedIn") !== "true") {
     window.location.href = "index.html";
 }
+
+// Display welcome
+const username = localStorage.getItem("username");
+document.querySelector("h2").innerText = `Welcome, ${username}`;
+
+// Load reminders
+const reminderList = document.getElementById("reminderList");
+
+function loadReminders() {
+    reminderList.innerHTML = "";
+    const reminders = JSON.parse(localStorage.getItem("reminders")) || [];
+    reminders.forEach((r, index) => {
+        const li = document.createElement("li");
+        li.textContent = `${r.title} - ${r.date} ${r.time}`;
+        reminderList.appendChild(li);
+    });
+}
+
+// Add reminder
+document.getElementById("addBtn").addEventListener("click", () => {
+    const title = document.getElementById("title").value;
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
+
+    if (!title || !date || !time) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    const reminders = JSON.parse(localStorage.getItem("reminders")) || [];
+    reminders.push({ title, date, time });
+    localStorage.setItem("reminders", JSON.stringify(reminders));
+
+    document.getElementById("title").value = "";
+    document.getElementById("date").value = "";
+    document.getElementById("time").value = "";
+
+    loadReminders();
+});
+
+// Check reminders every minute
+setInterval(() => {
+    const now = new Date();
+    const currentDate = now.toISOString().split("T")[0]; // YYYY-MM-DD
+    const currentTime = now.toTimeString().slice(0,5);    // HH:MM
+
+    const reminders = JSON.parse(localStorage.getItem("reminders")) || [];
+    reminders.forEach(r => {
+        if (r.date === currentDate && r.time === currentTime) {
+            alert(`📢 Reminder: ${r.title}`);
+        }
+    });
+}, 60000); // every 60 seconds
+
+// Logout
+document.getElementById("logoutBtn").addEventListener("click", () => {
+    localStorage.clear();
+    window.location.href = "index.html";
+});
+
+// Initial load
+loadReminders();
 </script>
 
 </body>
